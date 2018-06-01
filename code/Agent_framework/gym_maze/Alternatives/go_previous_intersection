@@ -1,0 +1,24 @@
+    def go_previous_intersection(self):
+
+        reversed_path = copy.deepcopy(self.path)
+        del reversed_path[0:len(reversed_path)-self.back_step_count]  # keeps only the path to previous intersection
+
+        del self.path[len(self.path)-self.back_step_count:len(self.path)]  # deletes the path to previous intersection
+        reversed_path.reverse()
+        print('reversed path :', reversed_path)
+        print('path ', self.path)
+
+        for step_index, step in enumerate(reversed_path):
+            # ^ enumerate produces index[1,...,n] and object [can be int, string, double or float] from list<object>
+            if 'intersection' in str(step):  # cast undefined type step to string
+                print('arrived at previous intersection')
+                direction = int(reversed_path[step_index - 1]) + random.choice(seq=[1, 3])  # adds a step in another dir
+
+            else:
+                print('going reverse route')
+                direction = self.re_direct(int(step) + 2)  # goes opposite direction
+                print('direction :', direction)
+            print('step index :', step_index)
+            print('steps : ', step)
+            self.step(direction)  # actually doing it
+            #  ^ todo : change this, I wish the step function being used only in the move function

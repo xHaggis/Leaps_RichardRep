@@ -1,37 +1,21 @@
-## Welcome to GitHub Pages
+## Welcome to LEAPS programming
 
-You can use the [editor on GitHub](https://github.com/HWURoboticsLab/Leaps_material/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+Welcome to the page about the LEAPS programming class. Classes are on Tuesday (13.45 - 15.45) and Friday (9.30 - 12.30) in EM.G47 (building 21 on the map https://www.hw.ac.uk/documents/edinburgh-campus-map.pdf take the entrance located between gait 1, gait 2 and boundary road north, after entering the building go left first door left).
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Lecture materials are located in the git hub which you can reach by clicking on the link on top.
 
-### Markdown
+We will loosely follow the following programme:
+- Week 1 Introduction to the robot and setting up the environment
+- Week 2 Object oriented programming
+  - Week 2 1<sup>st</sup> half lectures and short exercises
+  - Week 2 2<sup>nd</sup> half Maze Assignment
+- Week 3 Sensors and APIs
+  - Week 3 1<sup>st</sup> half lectures and short exercises
+  - Week 3 2<sup>nd</sup> basic programming test
+- Week 4 maze
+  - Week 4 1<sup>st</sup> half RC Assignment  
+  - Week 4 2<sup>nd</sup> half lectures and short exercises
+- Week 5 and 6 Final project
+- Week 7 presentations and competition
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/HWURoboticsLab/Leaps_material/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Your final project will be making the robot find a cube pick it up and return home to drop the cube. On the last Friday you will compete against your fellow students on this.

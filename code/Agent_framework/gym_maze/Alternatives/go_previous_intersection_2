@@ -1,0 +1,9 @@
+    def go_previous_intersection(self, direction):
+
+        while self.look(direction)[2] != self.intersection_location:
+            direction = self.only_one_possibility(direction)
+            self.step(direction)
+        print("arrived at previous intersection")
+        self.stop = 1
+
+        # tant qu'on est pas à la position de l'intersection, aller à l'unique possibilité

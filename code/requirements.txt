@@ -1,0 +1,8 @@
+## REQUIREMENTS FOR GYM-MAZE MASTER ##
+
+matplotlib
+colorama
+gym
+jupyter
+cozmo
+numpy

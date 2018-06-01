@@ -1,0 +1,368 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+    text-align: center;
+}
+
+#header {
+    flex: 0 1 auto;
+    font-family: "Roboto", "Lucida Grande", Verdana, Arial, sans-serif;
+    color: #ffffff;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.05);
+    background-image: linear-gradient(to bottom right, #fff022, #ffc736);
+    height: 70px;
+    line-height: 70px;
+    width: 100%;
+}
+
+#header .contentarea {
+    width: 800px;
+    text-align: left;
+    margin: 0 auto 0 auto;
+}
+
+#header span {
+    display: inline-block;
+    float: left;
+    line-height: 16px;
+    vertical-align: middle;
+    font-size: 1em;
+    margin: 20px 0 0 5px;
+}
+
+#header span i {
+    transform: scale(-1, 1);
+}
+
+#header .v-align {
+    float: left;
+    margin: 10px 0 0 0;
+}
+
+#content {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 auto;
+    width: 800px;
+    margin: 0 auto 0 auto;
+    padding: 0;
+}
+
+.flex-cstm {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    overflow: hidden !important;
+    padding: 0 !important;
+    width: 800px;
+    margin: 2px 0 -2px 0;
+}
+
+.l-col {
+    display: flex;
+    flex-direction: column;
+    flex: 0 1 auto;
+    overflow: hidden;
+    min-height: 0px;
+}
+
+.r-col {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 250px;
+    padding: 2px;
+    border: 1px solid #dddddd;
+    margin: 0 0 2px 2px;
+    min-height: 0px;
+}
+
+#tabs {
+    width: 800px;
+}
+
+#tabs-list li:before, #tabs-list li:after {
+    content: "";
+    position: absolute;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.15) 100%);
+    top: -1px;
+    bottom: -1px;
+    width: 1px;
+}
+
+#tabs-list li:before {
+    left: -1px;
+}
+
+#tabs-list li:after {
+    right: -1px;
+}
+
+.ul-list {
+    display: inline-block;
+    overflow-y: scroll;
+    list-style: none;
+    font-family: "Courier", "Lucida Console", monospace;
+    font-size: .8em;
+    width: 500px;
+    margin: 0 0 2px 0;
+    padding: 0;
+}
+
+.item-list {
+    border-bottom: solid 1px #eeeeee;
+    line-height: 24px;
+    padding: 0 0 0 11px;
+    color: #444444;
+    background-color: white;
+    opacity: 1;
+    transition: background 0.25s ease-out, opacity 0.4s ease-in-out;
+}
+
+.item-list:hover {
+    color: #ffffff;
+    background: #cccccc;
+    transition: none;
+    background-image: linear-gradient(to right, #000000, #dddddd);
+    opacity: 1 !important;
+}
+
+#list-buttons {
+    float: right;
+    background-color: white;
+    color: black;
+    padding: 0;
+    margin: 0;
+    line-height: 22px;
+    width: auto;
+    height: 22px;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+    z-index: 9993;
+}
+
+.box {
+    float:right;
+    line-height: 22px;
+    width: 22px;
+    height: 22px;
+    text-align: center;
+    margin: 0;
+    font-size: 1.2em;
+    position: relative;
+    border-left: 1px solid black;
+}
+
+.box-shadow {
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+}
+
+#accordion {
+    display: block;
+
+}
+
+#search-btns {
+    display: block;
+    padding: 0 4px;
+}
+
+.box:hover {
+    background-color: black;
+    color: white;
+}
+
+.red, .box:active {
+    color: red !important;
+}
+
+.greyed-out {
+    opacity: 0.4;
+}
+
+/*
+.bg-playing {
+    background-image: linear-gradient(to right, green, lightgreen) !important;
+    color: white;
+}
+*/
+
+.bg-just-played {
+    background-image: linear-gradient(to right, white, #aaaaaa);
+}
+
+input {
+    height: 30px;
+    font-size: 1em;
+    outline: none;
+    margin: 0;
+    padding: 0 0 0 5px;
+    width: 470px;
+    border: 1px solid #cccccc;
+}
+
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.filtersubmit {
+    position: relative;
+    z-index: 1;
+    left: -29px;
+    top: 1px;
+    color: #cccccc;
+    width: 0;
+}
+
+.filterclear {
+    position: relative;
+    z-index: 2;
+    left: -24px;
+    top: 1px;
+    color: #aaaaaa;
+    cursor: pointer;
+    width: 0;
+    visibility: hidden;
+}
+
+.ui-button{
+    margin: 5px 5px 0 0;
+    font-size: .7em;
+}
+
+.logo {
+    filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.05));
+    height: 30px;
+}
+
+.bg-grey {
+    background-image: linear-gradient(to bottom, #cccccc, white);
+    padding: 5px 0 5px 5px;
+    width: 495px;
+}
+
+#cozmo-container {
+    float: right;
+    width: 60px;
+    height: 60px;
+    position: relative;
+    margin: 5px 0 0 10px;
+}
+
+.cozmo {
+    position: absolute;
+    width: 60px;
+}
+
+#c-play {
+    display: none;
+    animation-name: blink;
+    animation-duration: 1.2s;
+    animation-iteration-count: infinite;
+}
+
+#c-eyes {
+    animation-name: eyeblink;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes eyeblink {
+    0%     {opacity: 1;}
+    50%    {opacity: 1;}
+    50.1%  {opacity: 0;}
+    51%    {opacity: 0;}
+    51.1%  {opacity: 1;}
+    100%   {opacity: 1;}
+}
+
+@keyframes blink {
+    0%     {opacity: 1;}
+    50%    {opacity: 1;}
+    50.1%  {opacity: 0;}
+    99.9%  {opacity: 0;}
+    100%   {opacity: 1;}
+}
+
+.bg-playing {
+    color: white;
+    background: linear-gradient(to right, lightgreen 0%, green 25%, lightgreen 50%, green 75%, lightgreen 100%) repeat-x 100% 0 !important;
+    background-size: 400% 100% !important;
+    animation-name: playing !important;
+    animation-duration: 10s !important;
+    animation-timing-function: linear !important;
+    animation-iteration-count: infinite !important;
+    animation-play-state: running !important;
+    opacity: 1 !important;
+}
+
+@keyframes playing {
+    from {background-position: 400% 0;}
+    to {background-position: 0 0;}
+}
+
+#copied {
+    display: inline-block;
+    color: #ffffff;
+    transition: none;
+    background-image: linear-gradient(to right, #000000, #dddddd);
+    position: absolute;
+    left: 0;
+    width: 474px;
+    height: 24px;
+    padding: 0 0 0 11px;
+    margin: 0 0 0 2px;
+    z-index: 9994;
+}
+
+.hermit {
+    float: right;
+    font-size: .6em;
+    color: #999999;
+    margin: 25px 0 0 0;
+    text-align: right;
+    line-height: 14px;
+}
+
+.hermit a{
+    color: #999999;
+}
+
+.hermit a:hover {
+    color: black;
+}
+
+*:focus {
+    outline: none !important;
+}
+
+.checkbox {
+    float: right;
+    display: inline-block;
+    padding: 8px 5px 0 0;
+}
+
+.checkbox input {
+    display: inline-block;
+    float: right;
+    width: 19px;
+    margin: -3px 0 0 5px;
+    cursor: pointer;
+}
+
+.checkbox label {
+    font-size: 0.7em;
+    font-weight: normal;
+    cursor: pointer;
+    user-select: none;
+}
