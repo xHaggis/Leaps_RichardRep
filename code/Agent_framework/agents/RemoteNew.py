@@ -3,27 +3,35 @@ import time
 import agent
 import cozmo
 
+global robot
 
+robot = cozmo.robot.Robot
 
-def handle_object_moving_started(self,evt, **kw):
+def handle_object_moving_started(evt, **kw):
     # This will be called whenever an EvtObjectMovingStarted event is dispatched -
     # whenever we detect a cube starts moving (via an accelerometer in the cube)
 
 
 
     if evt.obj.object_id == 1 and evt.acceleration == 1:
-        self.robot.drive_wheels(50,50)
+        robot.drive_wheels(50,50)
 
     if evt.obj.object_id == 1 and evt.acceleration == -1:
-        self.robot.drive_wheels(-50,-50)
+        robot.drive_wheels(-50,-50)
 
-    if evt.obj.object_id == 1 and
+    if evt.obj.object_id == 1 and cozmo.robot.objects.EvtObjectTapped == 1:
+        robot.move_lift(1)
 
     if evt.obj.object_id == 2 and evt.acceleration == 1:
-        self.robot.drive_wheels(25,50)
+        robot.drive_wheels(25,50)
 
     if evt.obj.object_id == 2 and evt.acceleration == -1:
-        self.robot.drive_wheels(50,25)
+        robot.drive_wheels(50,25)
+
+    if evt.obj.object_id == 2 and cozmo.robot.objects.EvtObjectTapped == 1:
+        robot.move_lift(-1)
+
+
 
 
 
