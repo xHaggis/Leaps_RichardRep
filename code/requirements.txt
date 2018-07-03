@@ -6,3 +6,5 @@ gym
 jupyter
 cozmo
 numpy
+scipy
+scikit-image

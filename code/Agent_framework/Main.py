@@ -14,9 +14,14 @@ complexity = density = 1
 if __name__ == '__main__':
     maze = RandomMazeGenerator(width, height, complexity, density)
 
+
+
     env = MazeEnv(maze, action_type='Moore', render_trace=False)
     env.reset()
-    agent = AgentPath(env)
-    agent.move()
+    agent = AgentDemo(env)
+    AgentDemo.Find_Direction(agent)
+
+
+
 
 
