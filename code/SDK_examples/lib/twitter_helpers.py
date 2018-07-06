@@ -163,7 +163,7 @@ class CozmoStream(tweepy.Stream):
         '''
 
         self.userstream(stall_warnings=stall_warnings, _with=_with, replies=replies,\
-                        track=track, locations=locations, async=run_in_new_thread,\
+                        track=track, locations=locations, is_async=run_in_new_thread,\
                         encoding=encoding)
 
 

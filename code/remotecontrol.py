@@ -1,34 +1,41 @@
- #!/usr/bin/env python3
 
-# Copyright (c) 2017 Anki, Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License in the file LICENSE.txt or at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
-'''Demonstrate the use of Object Moving events to detect when the cubes are moved.
-
-This script is a simple example of how to subscribe to Object Moving events to
-track when Cozmo detects that a cube is being moved.
-'''
 
 import time
+
 import cozmo
+from cozmo.util import distance_mm, speed_mmps, degrees
+g_robot = None
+
 
 
 def handle_object_moving_started(evt, **kw):
     # This will be called whenever an EvtObjectMovingStarted event is dispatched -
     # whenever we detect a cube starts moving (via an accelerometer in the cube)
     print("Object %s started moving: acceleration=%s" %
-          (evt.obj.object_id, evt.acceleration)) evt.obj
+          (evt.obj.object_id, evt.acceleration))
+    if evt.obj.object_id == 1:
+        if evt.acceleration.y >0:
+            g_robot.drive_straight(distance_mm(50), speed_mmps(25)).wait_for_completed()
+
+        if evt.acceleration.y <0:
+            g_robot.drive_straight(distance_mm(-50), speed_mmps(-25)).wait_for_completed()
+
+    if evt.obj.object_id == 2:
+        if evt.acceleration.x >0:
+            g_robot.turn_in_place(degrees(90)).wait_for_completed()
+
+        if evt.acceleration.x <0:
+            g_robot.turn_in_place(degrees(-90)).wait_for_completed()
+
+
+
+def handle_object_tapped(evt, **kw):
+    if evt.obj.object_id == 1:
+        g_robot.move_lift(-5)
+
+    if evt.obj.object_id == 2:
+        g_robot.move_lift(5)
+
 
 
 def handle_object_moving(evt, **kw):
@@ -36,9 +43,6 @@ def handle_object_moving(evt, **kw):
     # whenever we detect a cube is still moving a (via an accelerometer in the cube)
     print("Object %s is moving: acceleration=%s, duration=%.1f seconds" %
           (evt.obj.object_id, evt.acceleration, evt.move_duration))
-
-    if(evt.obj.object_id == 1 and evt.acceleration = 1):
-        robot.drive_wheels(50, 50)
 
 
 def handle_object_moving_stopped(evt, **kw):
@@ -49,16 +53,22 @@ def handle_object_moving_stopped(evt, **kw):
 
 
 def cozmo_program(robot: cozmo.robot.Robot):
+    global g_robot
+    g_robot = robot
     # Add event handlers that will be called for the corresponding event
     robot.add_event_handler(cozmo.objects.EvtObjectMovingStarted, handle_object_moving_started)
     robot.add_event_handler(cozmo.objects.EvtObjectMoving, handle_object_moving)
     robot.add_event_handler(cozmo.objects.EvtObjectMovingStopped, handle_object_moving_stopped)
+    robot.add_event_handler(cozmo.objects.EvtObjectTapped, handle_object_tapped)
 
     # keep the program running until user closes / quits it
     print("Press CTRL-C to quit")
-
-
+    while True:
+        time.sleep(1.0)
 
 
 cozmo.robot.Robot.drive_off_charger_on_connect = False  # Cozmo can stay on his charger for this example
 cozmo.run_program(cozmo_program)
+
+
+

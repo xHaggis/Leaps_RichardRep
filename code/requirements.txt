@@ -1,6 +1,6 @@
 ## REQUIREMENTS FOR GYM-MAZE MASTER ##
 
-matplotlib
+#matplotlib
 colorama
 gym
 jupyter
