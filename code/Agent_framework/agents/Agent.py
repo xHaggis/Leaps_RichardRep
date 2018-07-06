@@ -20,7 +20,7 @@ class Agent(object):
 
     def __init__(self, maze_env):
         super(Agent, self).__init__()
-        self.virtual = True  # we are working with a virtual maze
+        self.virtual = True  # we are working with a virtual maze if false we are working with the real robot
         self.maze_env = maze_env
         self.counter = 0
         self.debug = 1
@@ -39,6 +39,7 @@ class Agent(object):
         # maze look
         # get sensor information
         # return the info to the user or move function
+        done = 0
         if direction != -1:
             direction = self.re_direct(direction)
             if direction > 4:
@@ -62,15 +63,15 @@ class Agent(object):
             for number in row:
                 if number == 1:
                     # print(str(number) + str(number), end="", flush=True)
-                    print('██', end="", flush=True)
+                    print('1', end="", flush=True)
                 elif number == 2:
-                    print(f'{Fore.BLUE}' '● ', end="", flush=True)
+                    print(f'{Fore.BLUE}' '2', end="", flush=True)
                     print(f'{Style.RESET_ALL}', end="", flush=True)
                 elif number == 3:
-                    print(f'{Fore.GREEN}' + '░░', end="", flush=True)
+                    print(f'{Fore.GREEN}' + '3', end="", flush=True)
                     print(f'{Style.RESET_ALL}', end="", flush=True)
                 elif number == 0:
-                    print(f'  ', end="", flush=True)
+                    print(f' ', end="", flush=True)
             print('')
 
     def step(self, direction):  # stays

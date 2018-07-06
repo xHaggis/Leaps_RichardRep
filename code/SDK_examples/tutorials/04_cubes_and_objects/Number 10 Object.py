@@ -21,7 +21,6 @@ track when Cozmo detects that a cube is being moved.
 '''
 
 import time
-
 import cozmo
 
 
@@ -29,7 +28,7 @@ def handle_object_moving_started(evt, **kw):
     # This will be called whenever an EvtObjectMovingStarted event is dispatched -
     # whenever we detect a cube starts moving (via an accelerometer in the cube)
     print("Object %s started moving: acceleration=%s" %
-          (evt.obj.object_id, evt.acceleration))
+          (evt.obj.object_id, evt.acceleration)) evt.obj
 
 
 def handle_object_moving(evt, **kw):
@@ -37,6 +36,9 @@ def handle_object_moving(evt, **kw):
     # whenever we detect a cube is still moving a (via an accelerometer in the cube)
     print("Object %s is moving: acceleration=%s, duration=%.1f seconds" %
           (evt.obj.object_id, evt.acceleration, evt.move_duration))
+
+    if(evt.obj.object_id == 1 and evt.acceleration = 1):
+        robot.drive_wheels(50, 50)
 
 
 def handle_object_moving_stopped(evt, **kw):
@@ -54,8 +56,8 @@ def cozmo_program(robot: cozmo.robot.Robot):
 
     # keep the program running until user closes / quits it
     print("Press CTRL-C to quit")
-    while True:
-        time.sleep(1.0)
+
+
 
 
 cozmo.robot.Robot.drive_off_charger_on_connect = False  # Cozmo can stay on his charger for this example
