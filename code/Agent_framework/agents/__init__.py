@@ -1,5 +1,8 @@
 from .Agent import *
-from .AgentDemo import *
+from .AgentPledge import *
+from .AgentRandom import *
+from .AgentRandomStupid import *
+from .AgentPath import *
 
 
 
