@@ -1,5 +1,5 @@
 import cozmo
-import agent
+import Agent
 import time
 
 global robot
@@ -53,4 +53,4 @@ def ArenaCode(evt, **kwargs):
     anim.wait_for_completed()
 
 
-cozmo.run_program(cozmo_program)
+cozmo.run_program(ArenaCode)
