@@ -1,21 +1,10 @@
 import cozmo
-import Agent
+import agent
 import time
-import asyncio
 
 global robot
-global homeBase
-global enemyBase
-global assignedNumber
-global enemyNumber
-
-homeBase = 99
-enemyBase = 98
-assignedNumber = 1
-enemyNumber = 2
 robot = cozmo.robot.Robot
 
-'''''''''
 def ArenaCode(evt, **kwargs):
     look_around = robot.start_behavior(cozmo.behavior.BehaviorTypes.LookAroundInPlace)
 
@@ -42,26 +31,26 @@ def ArenaCode(evt, **kwargs):
 
     print("Yay, found cube")
 
+    cube.set_lights(cozmo.lights.green_light.flash())
+
+    anim = robot.play_anim_trigger(cozmo.anim.Triggers.BlockReact)
+    anim.wait_for_completed()
+
+    action = robot.pickup_object(cube)
+    print("got action", action)
+    result = action.wait_for_completed(timeout=30)
+    print("got action result", result)
+
     robot.turn_in_place(degrees(90)).wait_for_completed()
 
     action = robot.place_object_on_ground_here(cube)
     print("got action", action)
     result = action.wait_for_completed(timeout=30)
     print("got action result", result)
-''''
 
-def ArenaCode(evt, **kwargs):
-    gameInProgress = True
-
-    while gameInProgress = True:
-        
-
-    if homeBase = 98:
-
-    robot.drive_wheels(50)
+    anim = robot.play_anim_trigger(cozmo.anim.Triggers.MajorWin)
+    cube.set_light_corners(None, None, None, None)
+    anim.wait_for_completed()
 
 
-
-cozmo.run_program(ArenaCode)
-
-
+cozmo.run_program(cozmo_program)
