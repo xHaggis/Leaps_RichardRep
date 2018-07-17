@@ -20,7 +20,7 @@ robot: cozmo.robot.Robot
 self, evt, **kwargs
 '''''
 
-def ArenaCode(self, evt, **kwargs):
+class ArenaCode(self, evt, **kwargs):
     gameInProgress =  True
 
     while gameInProgress == True:
@@ -62,7 +62,8 @@ def ArenaCode(self, evt, **kwargs):
 
         if cube is None:
             robot.play_anim_trigger(cozmo.anim.Triggers.MajorFail)
-            return
+
+
 
         if cube is not None:
             robot.pickup_object(self, )
