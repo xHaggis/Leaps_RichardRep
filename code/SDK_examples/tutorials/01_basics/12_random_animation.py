@@ -24,7 +24,7 @@ for a name.
 import cozmo
 import random
 
-def cozmo_program(robot: cozmo.robot.Robot):
+def cozmo_program(C):
     # grab a list of animation triggers
     all_animation_triggers = robot.anim_triggers
 
