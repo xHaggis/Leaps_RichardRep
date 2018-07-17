@@ -19,6 +19,7 @@ class DetectTags:
         self.check_image()
 
     def check_image(self):
+        self.match_found = False
         image_list = list(range(1, 15))
         i = 0
         while self.match_found is False and i < len(image_list):
@@ -34,7 +35,6 @@ class DetectTags:
         self.img1 = cv2.imread('Selection/' + str(image_number) + '.png', 0)
 
         self.kp1, self.des1 = self.sift.detectAndCompute(self.img1, None)
-        self.match_found = False
         min_match_count = 35
 
         # Feature Recognition
