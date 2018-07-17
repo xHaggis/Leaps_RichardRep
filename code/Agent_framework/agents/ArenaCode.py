@@ -2,6 +2,7 @@ import cozmo
 import Agent
 import time
 import asyncio
+import Robot_Detect_Tags
 
 global robot
 global homeBase
@@ -19,6 +20,8 @@ robot = cozmo.robot.Robot
 robot: cozmo.robot.Robot
 self, evt, **kwargs
 '''''
+
+def ArenaCodeRev
 
 def ArenaCode(self, evt, **kwargs):
     gameInProgress =  True
