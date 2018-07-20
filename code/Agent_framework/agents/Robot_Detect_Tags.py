@@ -7,6 +7,7 @@ import time
 from cozmo.util import degrees, distance_mm, speed_mmps
 
 
+
 class RobotDetectsTags:
     def __init__(self):
         super(RobotDetectsTags, self).__init__()
@@ -62,6 +63,7 @@ class RobotDetectsTags:
         self.check_image()
 
     def check_image(self):
+        TurnedOnce = False
         image_list = list(range(1, 15))
         i = 0
         self.match_found = False
@@ -74,10 +76,12 @@ class RobotDetectsTags:
             print('Image is', image_list[i-1])
             if str(image_list[i-1]) == self.opponent_home_base:
                 print('Opponent home base')
-                # do stuff
+                self._robot.turn_in_place(degrees(180)).wait_for_completed()
+                self._robot.drive_straight(distance_mm(150), speed_mmps(50)).wait_for_completed()
             if str(image_list[i - 1]) == self.home_base:
                 print('Home base')
-                # do stuff
+                self._robot.turn_in_place(degrees(180)).wait_for_completed()
+                self._robot.drive_straight(distance_mm(150), speed_mmps(50)).wait_for_completed()
             if a == self.north_wall or a == self.south_wall or a == self.east_wall or a == self.west_wall:
                 print('Wall')
                 self._robot.drive_straight(distance_mm(150), speed_mmps(50)).wait_for_completed()
@@ -85,13 +89,19 @@ class RobotDetectsTags:
                 # do stuff
             if a == self.inner_box_wall_north or a == self.inner_box_wall_south or a == self.inner_box_wall_west:
                 print("I'm inside the box")
-                # do stuff
+                if TurnedOnce == True:
+                    self._robot.turn_in_place(degrees(325)).wait_for_completed()
+                else:
+                    self._robot.turn_in_place(degrees(325)).wait_for_completed()
+                    TurnedOnce = True
             if a == self.outer_box_wall_north or a == self.outer_box_wall_south or a == self.outer_box_wall_west:
                 print('I see the box')
-                # do stuff
+                self._robot.turn_in_place(degrees(90)).wait_for_completed()
+                self._robot.drive_straight(distance_mm(150), speed_mmps(50)).wait_for_completed()
             if a == self.special_zone:
                 print('Special zone')
-                # do stuff
+                self._robot.turn_in_place(degrees(90)).wait_for_completed()
+                self._robot.drive_straight(distance_mm(150), speed_mmps(50)).wait_for_completed()
         else:
             print('image not found')
 
@@ -119,6 +129,7 @@ class RobotDetectsTags:
                     self.match_found = True
         # print(str(image_number) + '  matches : ', len(good))
 
+'''
     def objectObserved(self, event, **kwargs):
         cubePickedUp = False
 
@@ -130,6 +141,7 @@ class RobotDetectsTags:
             self.check_image()
 
             if self.match_found == True:
+'''
 
 
 
